@@ -27,19 +27,8 @@ public class Main {
         double elapsedTimeInSeconds = ((endTime - startTime) / 1000);
         double wordPerMinute = (userWords.length / (elapsedTimeInSeconds / 60)); // number of words / elapsed minutes
         System.out.println("your spelling of the words was: " + Arrays.toString(userWords) + ".");
-        System.out.println("percentage of words you spelled wrong: " + spellingFaultPercentage(words, userWords) + ".");
+        System.out.println("percentage of words you spelled wrong: " + Utils.spellingFaultPercentage(words, userWords) + ".");
         System.out.println("your total time was: "  + elapsedTimeInSeconds + " seconds.");
         System.out.println("your WPM(word per minute) is: "  + wordPerMinute + " words per minute.");
-    }
-    
-    
-    static double spellingFaultPercentage(String[] originalWordsArray, String[] userWordArray){
-        // calculate number of wrongly spelled words in user array devided by prompted number of words
-        int wronglySpelledWordsCount = 0;
-        for (int i = 0; i < originalWordsArray.length; i++){
-            if (!originalWordsArray[i].equals(userWordArray[i]))
-                wronglySpelledWordsCount++;
-        }
-        return (((double)wronglySpelledWordsCount / originalWordsArray.length) * 100);
     }
 }
